@@ -23,7 +23,7 @@ app.get("/", (req, res, next) => {
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://talkr-chat.netlify.app/",
     methods: ["GET", "POST"],
   },
 });
