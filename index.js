@@ -6,7 +6,7 @@ const http = require("http");
 
 const cors = require("cors");
 
-const {Server} = require("socket.io");
+const socketIO = require("socket.io");
 
 app.use(cors());
 
@@ -15,16 +15,13 @@ const server = http.createServer(app);
 let users = {};
 let rooms = {};
 
-
 app.get("/", (req, res, next) => {
-  res.send("<html><h1>Server is working fine...</h1></html>")
-})
+  res.send("<html><h1>Server is working fine...</h1></html>");
+});
 
-
-const io = new Server(server, {
+const io = socketIO(server, {
   cors: {
-    origin: "https://talkr-chat.netlify.app/",
-    methods: ["GET", "POST"],
+    origin: "*",
   },
 });
 
